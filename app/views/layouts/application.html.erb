@@ -15,10 +15,11 @@
 	<div id="columns">
 		<div id="side"> 
 			<!-- START_HIGHLIGHT -->
-			<div id="cart">
+			<% if @cart %>
+			<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %> 
 				<%= render @cart %>
-			</div>
-
+			<% end %>
+			<% end %>
 			<!-- END_HIGHLIGHT -->
 			<ul>
 				<li><a href="<%=store_path%>">Home</a></li>
